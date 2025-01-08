@@ -1,0 +1,11 @@
+{% extends "App_Pagina/base.html"%}
+
+{% load static %}
+
+{% block main %}
+
+{% for resumen in resumenes %}
+    <li>{{resumen.titulo}}    
+{% endfor %}
+   
+{% endblock main %}
