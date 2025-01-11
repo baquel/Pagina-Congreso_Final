@@ -1,0 +1,14 @@
+{% extends "App_Pagina/base.html"%}
+
+{% load static %}
+
+{% block title %} Borrar resúmen {% endblock title %}
+
+{% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        ¿Está seguro/a que desea borrar el resumen {{resumen.titulo}}?
+                
+        <input type="submit" value="Borrar">
+    </form>
+{% endblock main %}

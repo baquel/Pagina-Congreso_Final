@@ -5,8 +5,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Congreso 2025</title>
+        <meta name="author" content="" />  
+        <title>Congreso 2025</title>      
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -20,11 +20,31 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'Autores' %}">Autores</a>
-                <a class="navbar-brand" href="{% url 'Buscar' %}">Buscar</a>                                                               
+                
+                    <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                    <a class="navbar-brand" href="{% url 'About' %}">Acerca de</a>
+                    <a class="navbar-brand" href="{% url 'ListarResumen' %}">Listar resúmenes</a>
+                    <a class="navbar-brand" href="{% url 'Buscar' %}">Buscar resúmenes</a>                
+                    {% if request.user.is_authenticated %}
+                        <a class="navbar-brand" href="{% url 'CrearResumen' %}">Crear resumen</a>                        
+                        {% if request.user.avatar %}
+                        <img src="{{ request.user.avatar.image.url}}" alt="" height="40px">
+                        {% endif %}                    
+                        <a class="btn btn-light" href="{% url 'EditarPerfil' %}">{{request.user.username}}</a>
+                        <a class="btn btn-outline-dark btn-sm" href="{% url 'EditarPerfil' %}">Editar perfil</a>   
+                        <form method="POST" action="{% url 'Logout' %}">
+                            {% csrf_token %}                         
+                            <button type="submit" class="btn btn-outline-dark btn-sm">Cerrar sesión</button>
+                        </form>
+                        
+                    {% else %}                 
+                        <a class="btn btn-outline-dark btn-sm" href="{% url 'Login' %}">Iniciar sesión</a> 
+                        <a class="btn btn-outline-dark btn-sm" href="{% url 'Registro' %}">Registrarse</a>
+                    {% endif %}                     
+                                                                                                           
             </div>
         </nav>
+
         {% block main %}
         {% endblock main %}
         <footer class="footer">

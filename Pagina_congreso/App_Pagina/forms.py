@@ -1,6 +1,6 @@
 from django import forms
 
-class AutoresForm(forms.Form):
+class ResumenesForm(forms.Form):
     nombre = forms.CharField()
     apellido = forms.CharField()
     email = forms.EmailField()
@@ -12,7 +12,7 @@ class AutoresForm(forms.Form):
     nombre_revisor=forms.CharField()
     apellido_revisor=forms.CharField()
     email_revisor=forms.CharField()
-    area=forms.CharField()
+    area=forms.CharField() 
 
 class BuscarForm(forms.Form):
     palabra_clave = forms.CharField()

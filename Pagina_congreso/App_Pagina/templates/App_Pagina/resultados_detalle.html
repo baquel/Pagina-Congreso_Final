@@ -1,0 +1,15 @@
+{% extends "App_Pagina/base.html"%}
+
+{% load static %}
+
+{% block title %} Ver resúmen {% endblock title %}
+
+{% block main %}
+  
+<p><b>Título:</b> {{resumenes.titulo}}</p>
+<p><b>Resúmen:</b> {{resumenes.cuerpo}}</p>
+<p><b>Es póster:</b> {{resumenes.poster}}</p>
+<p><b>Fecha de revisión:</b> {{resumenes.fecha_revision}}</p>
+<a class="btn btn-link" href="{% url 'ListarResumen' %}">Volver</a>
+       
+{% endblock main %}

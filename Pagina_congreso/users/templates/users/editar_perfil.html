@@ -1,0 +1,21 @@
+{% extends "App_Pagina/base.html"%}
+
+{% load static %}
+
+{% block title %} Editar perfil {% endblock title %}
+
+{% block main %}
+                                      
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <table>
+
+                        {{ mi_form.as_table }}
+                    </table>
+                    <input class="btn btn-outline-dark btn-sm mt-1" type="submit" value="Guardar cambios">                    
+                </form> 
+                <a class="btn btn-outline-dark btn-sm mt-3" href="{% url 'CambiarContrasenia' %}">Cambiar contraseña</a>  
+    
+
+{% endblock main %}

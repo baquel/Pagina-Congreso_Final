@@ -1,0 +1,10 @@
+{% extends "App_Pagina/base.html"%}
+
+{% load static %}
+
+{% block title %} Logout {% endblock title %}
+
+{% block main %}
+    {% csrf_token %}
+    <p class="fs-5 fw-bold">Te has deslogueado correctamente</p>
+{% endblock main %}

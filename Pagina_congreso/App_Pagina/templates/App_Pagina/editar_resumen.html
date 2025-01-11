@@ -2,17 +2,15 @@
 
 {% load static %}
 
-{% block title %} Buscar resúmen {% endblock title %}
+{% block title %} Editar resúmen {% endblock title %}
 
 {% block main %}
     <form action="" method="POST">
-
         {% csrf_token %}
-
         <table>
-            {{mi_formulario.as_table}}
+            {{form.as_table}}
         <table>
-        
-        <input type="submit" value="Buscar"> 
-    </form>       
+                
+        <input type="submit" value="Guardar cambios">
+    </form>
 {% endblock main %}
